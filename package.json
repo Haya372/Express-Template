@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www --babel-node",
-    "dev": "webpack-dev-server --config ./webpack.config.dev.js",
+    "client": "webpack-dev-server --config ./webpack.config.dev.js",
+    "dev": "concurrently \"npm run client\" \"npm run start\"",
     "build": "webpack --config ./webpack.config.js --mode production"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "concurrently": "^6.2.1",
     "css-loader": "^5.2.7",
     "html-webpack-plugin": "^4.5.2",
     "nodemon": "^2.0.12",
